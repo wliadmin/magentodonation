@@ -5,8 +5,8 @@ use Magento\Sales\Model\Order\Invoice;
 use Magento\Sales\Model\Order\Invoice\Total\AbstractTotal;
 
 /**
- * Class Fee
- * @package Prince\Extrafee\Model\Invoice\Total
+ * Class DonateFee
+ * @package Webline\Donation\Model\Invoice\Total
  */
 class DonateFee extends AbstractTotal
 {
