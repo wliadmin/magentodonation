@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Sales:etc/sales.xsd">
+    <section name="quote">
+        <group name="totals">
+            <item name="pp_donate_fee" instance="Webline\Donation\Model\Total\DonateFee" sort_order="160"/>
+        </group>
+    </section>
+    <section name="order_invoice">
+        <group name="totals">
+            <item name="pp_donate_fee" instance="Webline\Donation\Model\Invoice\Total\DonateFee" sort_order="160"/>
+        </group>
+    </section>
+    <section name="order_creditmemo">
+        <group name="totals">
+            <item name="pp_donate_fee" instance="Webline\Donation\Model\Creditmemo\Total\DonateFee" sort_order="160"/>
+        </group>
+    </section>
+</config>

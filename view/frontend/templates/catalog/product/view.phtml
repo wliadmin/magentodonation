@@ -1,0 +1,23 @@
+<?php
+/** @var \Webline\Donation\Block\Catalog\Product\View $block  */
+$isEnable = $block->isEnable();
+$priceHelper = $this->helper('Magento\Framework\Pricing\Helper\Data');
+?>
+
+<?php if( $isEnable ): ?>
+    <div class="container donate-block">
+        <h3 class="donate-block__title"><?= $block->getTitle(); ?></h3>
+        <div class="donate-block__wrapper">
+            <input type="checkbox" name="is_donate" value="1"/>
+            <img class="banner" src="<?= $block->getBannerUrl() ?>" title="<?= $block->getTitle() ?>"/>
+            <span class="description" ><?= $block->getDescription(); ?></span>
+            <select name="donate_value" class="donate-option">
+                <?php foreach ( $block->getDonateOptions() as $option ):?>
+                    <option value="<?= $block->roundPrice($priceHelper->currency($option['donate_option'], false, false)); ?>"> <?=  $priceHelper->currency($option['donate_option'], true, false); ?> </option>
+                <?php endforeach;?>
+            </select>
+        </div>
+    </div>
+<?php endif; ?>
+
+

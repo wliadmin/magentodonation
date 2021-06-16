@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="pphanmage" translate="label" sortOrder="10000">
+            <label>Webline - Donation</label>
+        </tab>
+
+        <section id="pp_product_donate" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Configuration</label>
+            <tab>pphanmage</tab>
+            <resource>Webline_Donation::ppmage_Donation_config</resource>
+
+            <group id="config" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General</label>
+
+                <field id="enable" translate="label" type="select"  sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Enable the donate option block in PDP.</comment>
+                </field>
+
+                <field id="title" translate="label" type="text"  sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Title</label>
+                </field>
+
+                <field id="description" translate="label" type="editor"  sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Description</label>
+                    <frontend_model>Webline\Donation\Block\Adminhtml\System\Config\Editor</frontend_model>
+                </field>
+
+                <field id="banner" translate="label" type="Magento\Config\Block\System\Config\Form\Field\File" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1" >
+                    <label>Image</label>
+                    <backend_model>Magento\Config\Model\Config\Backend\File</backend_model>
+                    <upload_dir config="system" >pp_Donation/banner</upload_dir>
+                </field>
+
+                <field id="donate_options" translate="label"  sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Donate Options</label>
+                    <frontend_model>Webline\Donation\Block\Adminhtml\System\Config\DonateOptions</frontend_model>
+                    <backend_model>Magento\Config\Model\Config\Backend\Serialized\ArraySerialized</backend_model>
+                    <comment>Please note: these values base on your base currency setup.</comment>
+                </field>
+            </group>
+        </section>
+
+    </system>
+</config>
